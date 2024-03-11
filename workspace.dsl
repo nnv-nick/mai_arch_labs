@@ -4,6 +4,8 @@ workspace {
 
     !identifiers hierarchical
 
+    !docs documentation
+
     model {
         properties { 
             structurizr.groupSeparator "/"
