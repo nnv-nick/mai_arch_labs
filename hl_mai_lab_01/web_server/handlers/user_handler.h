@@ -198,9 +198,10 @@ public:
             else if (hasSubstr(request.getURI(), "/search"))
             {
 
-                std::string fn = form.get("first_name");
-                std::string ln = form.get("last_name");
-                auto results = database::User::search(fn, ln);
+                std::string fn = form.get("name");
+                std::string ln = form.get("surname");
+                std::string login = form.get("login");
+                auto results = database::User::search(fn, ln, login);
                 Poco::JSON::Array arr;
                 for (auto s : results)
                     arr.add(remove_password(s.toJSON()));
@@ -214,11 +215,11 @@ public:
             }
             else if (request.getMethod() == Poco::Net::HTTPRequest::HTTP_POST)
             {
-                if (form.has("first_name") && form.has("last_name") && form.has("email") && form.has("title") && form.has("login") && form.has("password"))
+                if (form.has("name") && form.has("surname") && form.has("email") && form.has("title") && form.has("login") && form.has("password"))
                 {
                     database::User user;
-                    user.first_name() = form.get("first_name");
-                    user.last_name() = form.get("last_name");
+                    user.name() = form.get("name");
+                    user.surname() = form.get("surname");
                     user.email() = form.get("email");
                     user.title() = form.get("title");
                     user.login() = form.get("login");
@@ -228,14 +229,14 @@ public:
                     std::string message;
                     std::string reason;
 
-                    if (!check_name(user.get_first_name(), reason))
+                    if (!check_name(user.get_name(), reason))
                     {
                         check_result = false;
                         message += reason;
                         message += "<br>";
                     }
 
-                    if (!check_name(user.get_last_name(), reason))
+                    if (!check_name(user.get_surname(), reason))
                     {
                         check_result = false;
                         message += reason;

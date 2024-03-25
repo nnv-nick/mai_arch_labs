@@ -9,18 +9,24 @@ servers:
 paths:
   /search:
     get:
-      summary: Поиск пользователей по маске имени и фамилии
+      summary: Поиск пользователей по имени, фамилии и/или логину
       parameters:
-      - name: first_name
+      - name: name
         description: Имя
         in: query
-        required: true
+        required: false
         schema:
           type: string
-      - name: last_name
+      - name: surname
         description: Фамилия
         in: query
-        required: true
+        required: false
+        schema:
+          type: string
+      - name: login
+        description: Логин
+        in: query
+        required: false
         schema:
           type: string
       responses:
@@ -90,13 +96,13 @@ paths:
     post:
       summary: Добавление нового пользователя
       parameters:
-      - name: first_name
+      - name: name
         description: Имя пользователя
         in: query
         required: true
         schema:
           type: string
-      - name: last_name
+      - name: surname
         description: Фамилия пользователя
         in: query
         required: true
@@ -158,8 +164,8 @@ components:
       type: object
       required:
         - id
-        - first_name
-        - last_name
+        - name
+        - surname
         - email
         - title
         - login
@@ -167,9 +173,9 @@ components:
       properties:
         id:
           $ref: '#/components/schemas/user_id'
-        first_name:
+        name:
           type: string
-        last_name:
+        surname:
           type: string
         email:
           type: string

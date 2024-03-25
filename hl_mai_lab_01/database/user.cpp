@@ -25,13 +25,20 @@ namespace database
             Poco::Data::Session session = database::Database::get().create_session();
             Statement create_stmt(session);
             create_stmt << "CREATE TABLE IF NOT EXISTS users (id SERIAL,"
-                        << "first_name VARCHAR(256) NOT NULL,"
-                        << "last_name VARCHAR(256) NOT NULL,"
+                        << "name VARCHAR(256) NOT NULL,"
+                        << "surname VARCHAR(256) NOT NULL,"
                         << "login VARCHAR(256) NOT NULL,"
                         << "password VARCHAR(256) NOT NULL,"
                         << "email VARCHAR(256) NULL,"
                         << "title VARCHAR(1024) NULL);",
                 now;
+            
+            /*Statement create_index1(session);
+            create_index1 << "CREATE UNIQUE INDEX idx_unique_login ON users (login);", now;
+
+            Statement create_index2(session);
+            create_index2 << "CREATE INDEX idx_name_surname ON users (name, surname);", now;*/
+
         }
 
         catch (Poco::Data::PostgreSQL::PostgreSQLException &e)
@@ -51,8 +58,8 @@ namespace database
         Poco::JSON::Object::Ptr root = new Poco::JSON::Object();
 
         root->set("id", _id);
-        root->set("first_name", _first_name);
-        root->set("last_name", _last_name);
+        root->set("name", _name);
+        root->set("surname", _surname);
         root->set("email", _email);
         root->set("title", _title);
         root->set("login", _login);
@@ -69,8 +76,8 @@ namespace database
         Poco::JSON::Object::Ptr object = result.extract<Poco::JSON::Object::Ptr>();
 
         user.id() = object->getValue<long>("id");
-        user.first_name() = object->getValue<std::string>("first_name");
-        user.last_name() = object->getValue<std::string>("last_name");
+        user.name() = object->getValue<std::string>("name");
+        user.surname() = object->getValue<std::string>("surname");
         user.email() = object->getValue<std::string>("email");
         user.title() = object->getValue<std::string>("title");
         user.login() = object->getValue<std::string>("login");
@@ -116,10 +123,10 @@ namespace database
             Poco::Data::Session session = database::Database::get().create_session();
             Poco::Data::Statement select(session);
             User a;
-            select << "SELECT id, first_name, last_name, email, title,login,password FROM users where id=$1",
+            select << "SELECT id, name, surname, email, title,login,password FROM users where id=$1",
                 into(a._id),
-                into(a._first_name),
-                into(a._last_name),
+                into(a._name),
+                into(a._surname),
                 into(a._email),
                 into(a._title),
                 into(a._login),
@@ -153,10 +160,10 @@ namespace database
             Statement select(session);
             std::vector<User> result;
             User a;
-            select << "SELECT id, first_name, last_name, email, title, login, password FROM users",
+            select << "SELECT id, name, surname, email, title, login, password FROM users",
                 into(a._id),
-                into(a._first_name),
-                into(a._last_name),
+                into(a._name),
+                into(a._surname),
                 into(a._email),
                 into(a._title),
                 into(a._login),
@@ -184,7 +191,7 @@ namespace database
         }
     }
 
-    std::vector<User> User::search(std::string first_name, std::string last_name)
+    std::vector<User> User::search(std::string name, std::string surname, std::string login)
     {
         try
         {
@@ -192,18 +199,19 @@ namespace database
             Statement select(session);
             std::vector<User> result;
             User a;
-            first_name += "%";
-            last_name += "%";
-            select << "SELECT id, first_name, last_name, email, title, login, password FROM users where first_name LIKE $1 and last_name LIKE $2",
+            name += "%";
+            surname += "%";
+            login += "%";
+            select << "SELECT id, name, surname, email, title, login, password FROM users where name LIKE $1 and surname LIKE $2 and login LIKE $3",
                 into(a._id),
-                into(a._first_name),
-                into(a._last_name),
+                into(a._name),
+                into(a._surname),
                 into(a._email),
                 into(a._title),
                 into(a._login),
                 into(a._password),
-                use(first_name),
-                use(last_name),
+                use(name),
+                use(surname),
                 range(0, 1); //  iterate over result set one row at a time
 
             while (!select.done())
@@ -235,9 +243,9 @@ namespace database
             Poco::Data::Session session = database::Database::get().create_session();
             Poco::Data::Statement insert(session);
 
-            insert << "INSERT INTO users (first_name,last_name,email,title,login,password) VALUES($1, $2, $3, $4, $5, $6)",
-                use(_first_name),
-                use(_last_name),
+            insert << "INSERT INTO users (name,surname,email,title,login,password) VALUES($1, $2, $3, $4, $5, $6)",
+                use(_name),
+                use(_surname),
                 use(_email),
                 use(_title),
                 use(_login),
@@ -294,14 +302,14 @@ namespace database
         return _id;
     }
 
-    const std::string &User::get_first_name() const
+    const std::string &User::get_name() const
     {
-        return _first_name;
+        return _name;
     }
 
-    const std::string &User::get_last_name() const
+    const std::string &User::get_surname() const
     {
-        return _last_name;
+        return _surname;
     }
 
     const std::string &User::get_email() const
@@ -319,14 +327,14 @@ namespace database
         return _id;
     }
 
-    std::string &User::first_name()
+    std::string &User::name()
     {
-        return _first_name;
+        return _name;
     }
 
-    std::string &User::last_name()
+    std::string &User::surname()
     {
-        return _last_name;
+        return _surname;
     }
 
     std::string &User::email()
