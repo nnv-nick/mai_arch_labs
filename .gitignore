@@ -1,1 +1,3 @@
-.structurizr
+build/*
+__pycache_/*
+.DS_Store

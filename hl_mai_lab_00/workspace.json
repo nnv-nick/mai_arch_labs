@@ -11,7 +11,8 @@
     } ]
   },
   "id" : 1,
-  "lastModifiedDate" : "2024-03-11T23:34:00Z",
+  "lastModifiedAgent" : "structurizr-javascript",
+  "lastModifiedDate" : "2024-03-12T09:49:33Z",
   "model" : {
     "deploymentNodes" : [ {
       "containerInstances" : [ {
@@ -21,7 +22,7 @@
         "id" : "18",
         "instanceId" : 1,
         "properties" : {
-          "structurizr.dsl.identifier" : "370d6784-6a19-488d-b685-c254bde2f593.38658411-b9bf-47cc-b498-f7fe70b95155.aaad6e1b-5382-4dcb-97ae-7f6a00d9e04e"
+          "structurizr.dsl.identifier" : "2e896028-7362-4c02-9ff1-ad20d9b9c2bc.3f195445-a5b0-49cf-8e38-4252de39d3d5.72a0a81a-c12f-48c4-a431-31e9824e8e24"
         },
         "relationships" : [ {
           "description" : "Получение/обновление данных о пользователях",
@@ -38,7 +39,7 @@
       "instances" : "1",
       "name" : "User Server",
       "properties" : {
-        "structurizr.dsl.identifier" : "370d6784-6a19-488d-b685-c254bde2f593.38658411-b9bf-47cc-b498-f7fe70b95155"
+        "structurizr.dsl.identifier" : "2e896028-7362-4c02-9ff1-ad20d9b9c2bc.3f195445-a5b0-49cf-8e38-4252de39d3d5"
       },
       "tags" : "Element,Deployment Node"
     }, {
@@ -49,7 +50,7 @@
         "id" : "20",
         "instanceId" : 1,
         "properties" : {
-          "structurizr.dsl.identifier" : "370d6784-6a19-488d-b685-c254bde2f593.900c7ce5-e924-4bb9-b8d6-faaeaeaa6ed7.ee5359a8-26a6-496f-8036-d69c86170758"
+          "structurizr.dsl.identifier" : "2e896028-7362-4c02-9ff1-ad20d9b9c2bc.15f9fded-0785-498a-9e04-14d7ce3d527f.0c2bfb0a-8a8a-4730-aed9-54854b7593f7"
         },
         "relationships" : [ {
           "description" : "Получение/обновление данных о маршрутах",
@@ -66,7 +67,7 @@
       "instances" : "1",
       "name" : "Route Server",
       "properties" : {
-        "structurizr.dsl.identifier" : "370d6784-6a19-488d-b685-c254bde2f593.900c7ce5-e924-4bb9-b8d6-faaeaeaa6ed7"
+        "structurizr.dsl.identifier" : "2e896028-7362-4c02-9ff1-ad20d9b9c2bc.15f9fded-0785-498a-9e04-14d7ce3d527f"
       },
       "tags" : "Element,Deployment Node"
     }, {
@@ -77,7 +78,7 @@
         "id" : "22",
         "instanceId" : 1,
         "properties" : {
-          "structurizr.dsl.identifier" : "370d6784-6a19-488d-b685-c254bde2f593.3a030b1b-c09f-475a-b21d-c346e0336837.fa85d283-18b3-49ab-bd5f-51f2aece5c05"
+          "structurizr.dsl.identifier" : "2e896028-7362-4c02-9ff1-ad20d9b9c2bc.f3554557-c9b4-41b9-8812-82a06d002b0d.a024756a-d4a1-4658-bc96-6885d600d333"
         },
         "relationships" : [ {
           "description" : "Операции с данными о пользователях",
@@ -108,7 +109,7 @@
       "instances" : "5",
       "name" : "Main Server",
       "properties" : {
-        "structurizr.dsl.identifier" : "370d6784-6a19-488d-b685-c254bde2f593.3a030b1b-c09f-475a-b21d-c346e0336837"
+        "structurizr.dsl.identifier" : "2e896028-7362-4c02-9ff1-ad20d9b9c2bc.f3554557-c9b4-41b9-8812-82a06d002b0d"
       },
       "tags" : "Element,Deployment Node"
     }, {
@@ -120,7 +121,7 @@
           "id" : "27",
           "instanceId" : 1,
           "properties" : {
-            "structurizr.dsl.identifier" : "370d6784-6a19-488d-b685-c254bde2f593.f8a5f339-72e6-4137-94e6-886e84984064.4cd44f4c-6ab8-49dd-8361-5d7436829ac0.4dd0c7f6-2a1d-4118-b2a8-4dcd95e5e465"
+            "structurizr.dsl.identifier" : "2e896028-7362-4c02-9ff1-ad20d9b9c2bc.7a6e757d-de01-4c75-958c-624a705c770d.1b02869a-5dac-480f-8e98-f938c332d4ee.26243e3b-5210-4983-bea4-e584232b3c9d"
           },
           "tags" : "Container Instance"
         } ],
@@ -129,7 +130,7 @@
         "instances" : "1",
         "name" : "Database Server 1",
         "properties" : {
-          "structurizr.dsl.identifier" : "370d6784-6a19-488d-b685-c254bde2f593.f8a5f339-72e6-4137-94e6-886e84984064.4cd44f4c-6ab8-49dd-8361-5d7436829ac0"
+          "structurizr.dsl.identifier" : "2e896028-7362-4c02-9ff1-ad20d9b9c2bc.7a6e757d-de01-4c75-958c-624a705c770d.1b02869a-5dac-480f-8e98-f938c332d4ee"
         },
         "tags" : "Element,Deployment Node"
       }, {
@@ -140,7 +141,7 @@
           "id" : "30",
           "instanceId" : 1,
           "properties" : {
-            "structurizr.dsl.identifier" : "370d6784-6a19-488d-b685-c254bde2f593.f8a5f339-72e6-4137-94e6-886e84984064.06f2cede-cbe4-44c5-b9a2-6472c1a621e8.61eb9ba7-b0f6-47c5-88e7-43a83291496e"
+            "structurizr.dsl.identifier" : "2e896028-7362-4c02-9ff1-ad20d9b9c2bc.7a6e757d-de01-4c75-958c-624a705c770d.14431bac-6217-4b3d-bf1a-a83ccf5ba026.b625312d-6ece-46f3-a953-f9dba99cc466"
           },
           "tags" : "Container Instance"
         } ],
@@ -149,7 +150,7 @@
         "instances" : "3",
         "name" : "Database Server 2",
         "properties" : {
-          "structurizr.dsl.identifier" : "370d6784-6a19-488d-b685-c254bde2f593.f8a5f339-72e6-4137-94e6-886e84984064.06f2cede-cbe4-44c5-b9a2-6472c1a621e8"
+          "structurizr.dsl.identifier" : "2e896028-7362-4c02-9ff1-ad20d9b9c2bc.7a6e757d-de01-4c75-958c-624a705c770d.14431bac-6217-4b3d-bf1a-a83ccf5ba026"
         },
         "tags" : "Element,Deployment Node"
       }, {
@@ -160,7 +161,7 @@
           "id" : "33",
           "instanceId" : 1,
           "properties" : {
-            "structurizr.dsl.identifier" : "370d6784-6a19-488d-b685-c254bde2f593.f8a5f339-72e6-4137-94e6-886e84984064.9fd77110-ef4d-45b4-b48d-3a7d6936d83a.8b40a788-778b-49e3-9683-a4080322c93f"
+            "structurizr.dsl.identifier" : "2e896028-7362-4c02-9ff1-ad20d9b9c2bc.7a6e757d-de01-4c75-958c-624a705c770d.1ba76dd3-fbdd-421d-9f7d-792e87ee4b53.70a802a3-0d9c-4b11-9d9e-ddcc799e620d"
           },
           "tags" : "Container Instance"
         } ],
@@ -169,7 +170,7 @@
         "instances" : "1",
         "name" : "Database Server 3",
         "properties" : {
-          "structurizr.dsl.identifier" : "370d6784-6a19-488d-b685-c254bde2f593.f8a5f339-72e6-4137-94e6-886e84984064.9fd77110-ef4d-45b4-b48d-3a7d6936d83a"
+          "structurizr.dsl.identifier" : "2e896028-7362-4c02-9ff1-ad20d9b9c2bc.7a6e757d-de01-4c75-958c-624a705c770d.1ba76dd3-fbdd-421d-9f7d-792e87ee4b53"
         },
         "tags" : "Element,Deployment Node"
       } ],
@@ -178,7 +179,7 @@
       "instances" : "1",
       "name" : "databases",
       "properties" : {
-        "structurizr.dsl.identifier" : "370d6784-6a19-488d-b685-c254bde2f593.f8a5f339-72e6-4137-94e6-886e84984064"
+        "structurizr.dsl.identifier" : "2e896028-7362-4c02-9ff1-ad20d9b9c2bc.7a6e757d-de01-4c75-958c-624a705c770d"
       },
       "tags" : "Element,Deployment Node"
     } ],
@@ -194,7 +195,7 @@
         "destinationId" : "3",
         "id" : "14",
         "properties" : {
-          "structurizr.dsl.identifier" : "aeeb61d0-a2e0-42b3-bc37-561a12460ecc"
+          "structurizr.dsl.identifier" : "5c3f2c8c-565c-4e24-9394-dab6df272c30"
         },
         "sourceId" : "1",
         "tags" : "Relationship",
@@ -211,7 +212,7 @@
         "destinationId" : "2",
         "id" : "16",
         "properties" : {
-          "structurizr.dsl.identifier" : "2f82036c-e275-4ed9-95b1-101a8ab1dbd6"
+          "structurizr.dsl.identifier" : "994055fb-1873-48f5-b548-2cd99f7ddf4c"
         },
         "sourceId" : "1",
         "tags" : "Relationship"
@@ -235,7 +236,7 @@
           "destinationId" : "4",
           "id" : "11",
           "properties" : {
-            "structurizr.dsl.identifier" : "160fc51c-eac3-417d-bdf9-ba18d41987e6"
+            "structurizr.dsl.identifier" : "96cab1c4-fef0-454a-a388-4dfa482fe7b3"
           },
           "sourceId" : "3",
           "tags" : "Relationship",
@@ -245,7 +246,7 @@
           "destinationId" : "5",
           "id" : "12",
           "properties" : {
-            "structurizr.dsl.identifier" : "e465c7a8-6400-44c1-ac76-56f1485efaf8"
+            "structurizr.dsl.identifier" : "dffe8c0b-8fbd-42a7-8a40-97f5b1984c7d"
           },
           "sourceId" : "3",
           "tags" : "Relationship",
@@ -255,7 +256,7 @@
           "destinationId" : "7",
           "id" : "13",
           "properties" : {
-            "structurizr.dsl.identifier" : "065684de-440e-4367-8fcf-d314655611b4"
+            "structurizr.dsl.identifier" : "bd127321-2a98-43cf-9f8c-1f07f1aa6d6d"
           },
           "sourceId" : "3",
           "tags" : "Relationship",
@@ -275,7 +276,7 @@
           "destinationId" : "6",
           "id" : "9",
           "properties" : {
-            "structurizr.dsl.identifier" : "d0834f18-02da-4ad9-b05f-cc17a8756f38"
+            "structurizr.dsl.identifier" : "6c96cbfd-7019-47a4-9663-bd5679df6613"
           },
           "sourceId" : "4",
           "tags" : "Relationship",
@@ -295,7 +296,7 @@
           "destinationId" : "8",
           "id" : "10",
           "properties" : {
-            "structurizr.dsl.identifier" : "a9945039-dd76-488e-97d1-e9b51edbd674"
+            "structurizr.dsl.identifier" : "c8a0a84d-8e29-4ddb-a47c-d89d9eeb1c46"
           },
           "sourceId" : "5",
           "tags" : "Relationship",
@@ -354,7 +355,8 @@
   "views" : {
     "configuration" : {
       "branding" : { },
-      "lastSavedView" : "Deployment-001",
+      "lastSavedView" : "SystemLandscape-001",
+      "metadataSymbols" : "SquareBrackets",
       "properties" : {
         "structurizr.tooltips" : "true"
       },
@@ -377,34 +379,38 @@
         "rankSeparation" : 300,
         "vertices" : false
       },
+      "dimensions" : {
+        "height" : 3065,
+        "width" : 3030
+      },
       "elements" : [ {
         "id" : "1",
-        "x" : 0,
-        "y" : 0
+        "x" : 1314,
+        "y" : 200
       }, {
         "id" : "3",
-        "x" : 0,
-        "y" : 0
+        "x" : 1289,
+        "y" : 1050
       }, {
         "id" : "4",
-        "x" : 0,
-        "y" : 0
+        "x" : 239,
+        "y" : 1650
       }, {
         "id" : "5",
-        "x" : 0,
-        "y" : 0
+        "x" : 2339,
+        "y" : 1650
       }, {
         "id" : "6",
-        "x" : 0,
-        "y" : 0
+        "x" : 239,
+        "y" : 2400
       }, {
         "id" : "7",
-        "x" : 0,
-        "y" : 0
+        "x" : 1289,
+        "y" : 2400
       }, {
         "id" : "8",
-        "x" : 0,
-        "y" : 0
+        "x" : 2339,
+        "y" : 2400
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
       "generatedKey" : true,
@@ -435,30 +441,34 @@
         "rankSeparation" : 300,
         "vertices" : false
       },
+      "dimensions" : {
+        "height" : 2852,
+        "width" : 3830
+      },
       "elements" : [ {
         "id" : "17",
         "x" : 0,
         "y" : 0
       }, {
         "id" : "18",
-        "x" : 0,
-        "y" : 0
+        "x" : 240,
+        "y" : 1120
       }, {
         "id" : "19",
         "x" : 0,
         "y" : 0
       }, {
         "id" : "20",
-        "x" : 0,
-        "y" : 0
+        "x" : 3140,
+        "y" : 1120
       }, {
         "id" : "21",
         "x" : 0,
         "y" : 0
       }, {
         "id" : "22",
-        "x" : 0,
-        "y" : 0
+        "x" : 1690,
+        "y" : 220
       }, {
         "id" : "25",
         "x" : 0,
@@ -469,24 +479,24 @@
         "y" : 0
       }, {
         "id" : "27",
-        "x" : 0,
-        "y" : 0
+        "x" : 240,
+        "y" : 2170
       }, {
         "id" : "29",
         "x" : 0,
         "y" : 0
       }, {
         "id" : "30",
-        "x" : 0,
-        "y" : 0
+        "x" : 1690,
+        "y" : 2170
       }, {
         "id" : "32",
         "x" : 0,
         "y" : 0
       }, {
         "id" : "33",
-        "x" : 0,
-        "y" : 0
+        "x" : 3140,
+        "y" : 2170
       } ],
       "environment" : "Production",
       "generatedKey" : true,
@@ -831,7 +841,7 @@
       } ]
     }, {
       "automaticLayout" : {
-        "applied" : false,
+        "applied" : true,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
@@ -840,27 +850,31 @@
         "vertices" : false
       },
       "description" : "Создание поездки",
+      "dimensions" : {
+        "height" : 2665,
+        "width" : 1680
+      },
       "elementId" : "2",
       "elements" : [ {
         "id" : "1",
-        "x" : 0,
-        "y" : 0
+        "x" : 557,
+        "y" : 199
       }, {
         "id" : "3",
-        "x" : 0,
-        "y" : 0
+        "x" : 557,
+        "y" : 799
       }, {
         "id" : "4",
-        "x" : 0,
-        "y" : 0
+        "x" : 932,
+        "y" : 1399
       }, {
         "id" : "6",
-        "x" : 0,
-        "y" : 0
+        "x" : 990,
+        "y" : 1999
       }, {
         "id" : "7",
-        "x" : 0,
-        "y" : 0
+        "x" : 240,
+        "y" : 1999
       } ],
       "externalBoundariesVisible" : false,
       "key" : "UC07",
@@ -888,7 +902,7 @@
       } ]
     }, {
       "automaticLayout" : {
-        "applied" : false,
+        "applied" : true,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
@@ -897,27 +911,31 @@
         "vertices" : false
       },
       "description" : "Подключение пользователей к поездке",
+      "dimensions" : {
+        "height" : 2665,
+        "width" : 1680
+      },
       "elementId" : "2",
       "elements" : [ {
         "id" : "1",
-        "x" : 0,
-        "y" : 0
+        "x" : 557,
+        "y" : 199
       }, {
         "id" : "3",
-        "x" : 0,
-        "y" : 0
+        "x" : 557,
+        "y" : 799
       }, {
         "id" : "4",
-        "x" : 0,
-        "y" : 0
+        "x" : 932,
+        "y" : 1399
       }, {
         "id" : "6",
-        "x" : 0,
-        "y" : 0
+        "x" : 990,
+        "y" : 1999
       }, {
         "id" : "7",
-        "x" : 0,
-        "y" : 0
+        "x" : 240,
+        "y" : 1999
       } ],
       "externalBoundariesVisible" : false,
       "key" : "UC08",
@@ -945,7 +963,7 @@
       } ]
     }, {
       "automaticLayout" : {
-        "applied" : false,
+        "applied" : true,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
@@ -954,19 +972,23 @@
         "vertices" : false
       },
       "description" : "Получение информации о поездке",
+      "dimensions" : {
+        "height" : 2065,
+        "width" : 930
+      },
       "elementId" : "2",
       "elements" : [ {
         "id" : "1",
-        "x" : 0,
-        "y" : 0
+        "x" : 239,
+        "y" : 199
       }, {
         "id" : "3",
-        "x" : 0,
-        "y" : 0
+        "x" : 239,
+        "y" : 799
       }, {
         "id" : "7",
-        "x" : 0,
-        "y" : 0
+        "x" : 239,
+        "y" : 1399
       } ],
       "externalBoundariesVisible" : false,
       "key" : "UC09",
@@ -993,14 +1015,18 @@
         "rankSeparation" : 300,
         "vertices" : false
       },
+      "dimensions" : {
+        "height" : 1400,
+        "width" : 886
+      },
       "elements" : [ {
         "id" : "1",
-        "x" : 0,
-        "y" : 0
+        "x" : 243,
+        "y" : 200
       }, {
         "id" : "2",
-        "x" : 0,
-        "y" : 0
+        "x" : 218,
+        "y" : 900
       } ],
       "enterpriseBoundaryVisible" : true,
       "generatedKey" : true,
@@ -1023,14 +1049,18 @@
         "rankSeparation" : 300,
         "vertices" : false
       },
+      "dimensions" : {
+        "height" : 1400,
+        "width" : 850
+      },
       "elements" : [ {
         "id" : "1",
-        "x" : 0,
-        "y" : 0
+        "x" : 224,
+        "y" : 200
       }, {
         "id" : "2",
-        "x" : 0,
-        "y" : 0
+        "x" : 199,
+        "y" : 900
       } ],
       "enterpriseBoundaryVisible" : true,
       "generatedKey" : true,
