@@ -2,12 +2,14 @@
 #include "database.h"
 #include "../config/config.h"
 
+#include <Poco/Base64Encoder.h>
 #include <Poco/Data/SessionFactory.h>
 #include <Poco/Data/RecordSet.h>
 #include <Poco/JSON/Parser.h>
 #include <Poco/Dynamic/Var.h>
 
 #include <sstream>
+#include <cstdlib>
 #include <exception>
 
 using namespace Poco::Data::Keywords;
@@ -33,11 +35,11 @@ namespace database
                         << "title VARCHAR(1024) NULL);",
                 now;
             
-            /*Statement create_index1(session);
+            Statement create_index1(session);
             create_index1 << "CREATE UNIQUE INDEX idx_unique_login ON users (login);", now;
 
             Statement create_index2(session);
-            create_index2 << "CREATE INDEX idx_name_surname ON users (name, surname);", now;*/
+            create_index2 << "CREATE INDEX idx_name_surname ON users (name, surname);", now;
 
         }
 
@@ -116,41 +118,6 @@ namespace database
         }
         return {};
     }
-    std::optional<User> User::read_by_id(long id)
-    {
-        try
-        {
-            Poco::Data::Session session = database::Database::get().create_session();
-            Poco::Data::Statement select(session);
-            User a;
-            select << "SELECT id, name, surname, email, title,login,password FROM users where id=$1",
-                into(a._id),
-                into(a._name),
-                into(a._surname),
-                into(a._email),
-                into(a._title),
-                into(a._login),
-                into(a._password),
-                use(id),
-                range(0, 1); //  iterate over result set one row at a time
-
-            select.execute();
-            Poco::Data::RecordSet rs(select);
-            if (rs.moveFirst())
-                return a;
-        }
-
-        catch (Poco::Data::PostgreSQL::ConnectionException &e)
-        {
-            std::cout << "connection:" << e.what() << std::endl;
-        }
-        catch (Poco::Data::PostgreSQL::StatementException &e)
-        {
-
-            std::cout << "statement:" << e.what() << std::endl;
-        }
-        return {};
-    }
 
     std::vector<User> User::read_all()
     {
@@ -212,6 +179,7 @@ namespace database
                 into(a._password),
                 use(name),
                 use(surname),
+                use(login),
                 range(0, 1); //  iterate over result set one row at a time
 
             while (!select.done())
@@ -235,13 +203,24 @@ namespace database
         }
     }
 
-    void User::save_to_mysql()
+    void User::encode_password() {
+        std::stringstream ss;
+        Poco::Base64Encoder encoder(ss);
+        encoder << _password;
+        encoder.close();
+
+        _password = ss.str();
+    }
+
+    void User::save_to_postgresql()
     {
 
         try
         {
             Poco::Data::Session session = database::Database::get().create_session();
             Poco::Data::Statement insert(session);
+
+            encode_password();
 
             insert << "INSERT INTO users (name,surname,email,title,login,password) VALUES($1, $2, $3, $4, $5, $6)",
                 use(_name),
