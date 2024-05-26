@@ -1,0 +1,228 @@
+openapi: '3.0.0'
+info:
+  version: '1.0.0'
+  title: 'API сервиса для поиска попутчиков'
+servers:
+  - url: http://localhost:8080
+    description: Main server
+paths:
+  /route:
+    post:
+      summary: Добавление нового маршрута
+      requestBody:
+        description: Данные нового маршрута
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Route'
+      responses:
+        '200':
+          description: Идентификатор добавленного маршрута
+          content:
+            application/json:
+              schema:
+                type: integer
+        404:
+          description: Ошибка добавления маршрута
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Неожиданная ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  
+  /user_routes:
+    get:
+      summary: Получение данных о маршрутах, созданных пользователем
+      parameters:
+      - name: user_id
+        description: Уникальный идентификатор пользователя
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Id'
+      responses:
+        '200':
+          description: Найденные маршруты пользователя
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Routes'
+        404:
+          description: Пользователь не найден
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Неожиданная ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  
+  /trip:
+    post:
+      summary: Добавление новой поездки
+      requestBody:
+        description: Данные новой поездки
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Trip'
+      responses:
+        '200':
+          description: Идентификатор добавленной поездки
+          content:
+            application/json:
+              schema:
+                type: integer
+        404:
+          description: Ошибка добавления поездки
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Неожиданная ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  
+  /add_to_trip:
+    post:
+      summary: Добавление пользователя в поездку
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [trip_id, user_id]
+              properties:
+                trip_id:
+                  type: string
+                user_id:
+                  type: string
+      responses:
+        '200':
+          description: Сигнал о том, что добавление прошло успешно
+          content:
+            application/json:
+              schema:
+                type: string
+        404:
+          description: Поездка не найдена
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Неожиданная ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  
+  /trip_info:
+    get:
+      summary: Получение данных о поездке
+      parameters:
+      - name: trip_id
+        description: Уникальный идентификатор поездки
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Id'
+      responses:
+        '200':
+          description: Найденная поездка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trip'
+        404:
+          description: Поездка не найдена
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Неожиданная ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    Stop:
+        type: object
+        required: [country, address, time_on_stop]
+        properties:
+          country:
+            type: string
+          address:
+            type: string
+          time_on_stop:
+            type: integer
+    Route:
+      type: object
+      required: [id, user_id, title, length, duration, price, stops]
+      properties:
+        id:
+          type: integer
+        user_id:
+          type: integer
+        title:
+          type: string
+        length:
+          type: integer
+        duration:
+          type: integer
+        price:
+          type: integer
+        stops:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stop'
+    Id:
+      description: Уникальный идентификатор
+      type: integer
+    Routes:
+      type: array
+      items:
+        $ref: '#/components/schemas/Route'
+    Trip:
+      type: object
+      required: [id, route_id, user_ids]
+      properties:
+        id:
+          type: integer
+        route_id:
+          $ref: '#/components/schemas/Id'
+        user_ids:
+          type: array
+          items:
+            $ref: '#/components/schemas/Id'
+    Error:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          description: Сообщение о ошибке
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - basicAuth: []
